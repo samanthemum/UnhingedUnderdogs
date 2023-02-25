@@ -28,11 +28,16 @@ public class Health : MonoBehaviour
         return health;
     }
 
-    public void TakeDamage(float attackAmount)
+    public void TakeDamage(float attackAmount, Vector3 knockBackDirection)
     {
         health -= attackAmount;
         Debug.Log("Setting damage trigger");
         animator.SetTrigger("damage");
         Debug.Log("Remaining health is " + health);
+
+        if (this.GetComponent<Rigidbody>())
+        {
+            this.GetComponent<Rigidbody>().AddForce(knockBackDirection * attackAmount * 150.0f);
+        }
     }
 }

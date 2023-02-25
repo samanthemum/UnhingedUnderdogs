@@ -103,7 +103,9 @@ public class EnemyMovement : MonoBehaviour
             else
             {
                 Debug.Log("Enemy was hit!");
-                enemyHealth.TakeDamage(mainAttack.GetAttack());
+                Vector3 direction = (collision.transform.position - this.transform.position).normalized;
+                direction.y = 0;
+                enemyHealth.TakeDamage(mainAttack.GetAttack(), direction);
             }
 
             // TODO: might need to make it easier to take damage

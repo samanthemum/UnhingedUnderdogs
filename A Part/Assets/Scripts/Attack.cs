@@ -37,6 +37,7 @@ public class Attack : MonoBehaviour
     {
         if(currentCoolDownTime != 0.0f)
         {
+            Debug.Log("Waiting on cooldown");
             return;
         }
 
@@ -50,15 +51,22 @@ public class Attack : MonoBehaviour
             return;
         }
 
-        if(currentCoolDownTime == 0.0f)
-        {
             // check to ensure the enemy is something that can actually be damaged
             Health enemyHealth = currentAttackTarget.GetComponent<Health>();
             if(enemyHealth)
             {
-                enemyHealth.TakeDamage(attackDamage);
-            } 
-        } 
+                Debug.Log("Dealing damage");
+                Vector3 knockBackDirection = (currentAttackTarget.transform.position - this.transform.position).normalized;
+                knockBackDirection.y = 0.0f;
+                enemyHealth.TakeDamage(attackDamage, knockBackDirection);
+
+                // do knockback vector
+                
+                knockBackDirection.y = 0.0f;
+            } else
+            {
+                Debug.Log("Current target does not have attack component");
+            }
         
     }
 
