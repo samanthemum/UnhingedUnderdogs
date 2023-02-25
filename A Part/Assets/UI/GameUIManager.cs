@@ -67,6 +67,8 @@ public class GameUIManager : MonoBehaviour
         {
             storyText.text = TutorialTexts[++StoryIndex];
         }
+
+        
         
     }
 
@@ -87,18 +89,20 @@ public class GameUIManager : MonoBehaviour
     //    attackUI.SetActive(false);
     //}
 
-    public void displayNextAction()
+     IEnumerator  displayNextAction()
     {
-        if(ActionIndex >= TutorialActions.Length)
+        yield return new WaitForSeconds(0.5f);
+        if (ActionIndex >= TutorialActions.Length-1)
         {
             endTutorial();
-            TutorialActions[ActionIndex].SetActive(true);
+            TutorialActions[ActionIndex].SetActive(false);
             
         } else
         {
             TutorialActions[ActionIndex++].SetActive(false);
             TutorialActions[ActionIndex].SetActive(true);
         }
+        
         
     }
 
@@ -119,20 +123,21 @@ public class GameUIManager : MonoBehaviour
 
         if (isTutorial)
         {
-            if ((Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
+            if (Input.GetKeyUp(KeyCode.W)
                 && TutorialActions[0].activeInHierarchy)
             {
-                displayNextAction();
+                StartCoroutine(displayNextAction());
             }
 
             if (Input.GetKeyUp(KeyCode.E) && TutorialActions[1].activeInHierarchy)
             {
-                displayNextAction();
+                StartCoroutine(displayNextAction());
             }
 
             if (Input.GetKeyUp(KeyCode.Q) && TutorialActions[2].activeInHierarchy)
             {
-                endTutorial();  
+                StartCoroutine(displayNextAction());
+                //endTutorial();  
             }
         }
 
@@ -140,6 +145,11 @@ public class GameUIManager : MonoBehaviour
         //Node: a delay will be a nice feature to add to this
         
     }
+
+    //IEnumerator delay(float delayTime)
+    //{
+    //    yield return delayTime;
+    //}
 
     public void updateHealth()
     {

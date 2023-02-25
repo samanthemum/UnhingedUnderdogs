@@ -199,7 +199,9 @@ MonoBehaviour:
   TutorialMenu: {fileID: 5741778610778310343}
   healthSlider: {fileID: 1191059094645008070}
   TutorialActions:
-  - {fileID: 0}
+  - {fileID: 7688557668481452496}
+  - {fileID: 1056388895463289262}
+  - {fileID: 5179687100639832700}
   storyUI: {fileID: 7957747208603539838}
   TutorialTexts:
   - a
