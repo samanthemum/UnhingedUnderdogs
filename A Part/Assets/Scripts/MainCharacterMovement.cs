@@ -8,6 +8,7 @@ public class MainCharacterMovement : MonoBehaviour
     // Update is called once per frame
      [SerializeField] float characterSpeed = 1.0f;
     [SerializeField] Rigidbody rigidbody;
+    [SerializeField] Attack attack;
 
     private void Start()
     {
@@ -16,6 +17,8 @@ public class MainCharacterMovement : MonoBehaviour
         {
             Debug.Log("Could not set rigid body");
         }
+
+        attack = GetComponent<Attack>();
     }
 
     void Update()
@@ -28,6 +31,12 @@ public class MainCharacterMovement : MonoBehaviour
             Vector3 currentPosition = rigidbody.transform.position;
             Vector3 targetPosition = new Vector3(currentPosition.x + horizontalComponent * characterSpeed, currentPosition.y, currentPosition.z + verticalComponent * characterSpeed);
             rigidbody.MovePosition(targetPosition);
+        }
+
+        // Do attacks
+        if(Input.GetAxis("Attack") > 0)
+        {
+            attack.DoAttack();
         }
     }
 }

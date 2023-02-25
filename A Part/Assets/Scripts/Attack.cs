@@ -17,14 +17,6 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Attack if button pressed and cool down is ready
-        if(Input.GetAxis("Attack") > 0 && currentCoolDownTime == 0.0f)
-        {
-            animator.SetTrigger("attack");
-            currentCoolDownTime = attackCoolDown;
-            Debug.Log("You attacked");
-        }
-
 
         // Refresh cooldown
         if(currentCoolDownTime > 0)
@@ -32,5 +24,16 @@ public class Attack : MonoBehaviour
             currentCoolDownTime -= Time.deltaTime;
             currentCoolDownTime = currentCoolDownTime < 0 ? 0 : currentCoolDownTime;
         }
+    }
+
+    public void DoAttack()
+    {
+        if(currentCoolDownTime == 0.0f)
+        {
+            animator.SetTrigger("attack");
+            currentCoolDownTime = attackCoolDown;
+            Debug.Log("You attacked");
+        }
+        
     }
 }
