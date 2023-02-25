@@ -35,19 +35,35 @@ public class Attack : MonoBehaviour
 
     public void DoAttack()
     {
+        if(currentCoolDownTime != 0.0f)
+        {
+            return;
+        }
+
+        animator.SetTrigger("attack");
+        currentCoolDownTime = attackCoolDown;
+        Debug.Log("You attacked");
+
+        if (!currentAttackTarget)
+        {
+            Debug.Log("No attack object");
+            return;
+        }
+
         if(currentCoolDownTime == 0.0f)
         {
-            animator.SetTrigger("attack");
-            currentCoolDownTime = attackCoolDown;
-            Debug.Log("You attacked");
-
             // check to ensure the enemy is something that can actually be damaged
             Health enemyHealth = currentAttackTarget.GetComponent<Health>();
             if(enemyHealth)
             {
                 enemyHealth.TakeDamage(attackDamage);
-            }
-        }
+            } 
+        } 
         
+    }
+
+    public float GetAttack()
+    {
+        return attackDamage;
     }
 }

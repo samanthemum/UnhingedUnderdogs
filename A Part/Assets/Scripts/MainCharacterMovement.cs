@@ -11,6 +11,7 @@ public class MainCharacterMovement : MonoBehaviour
     [SerializeField] Attack attack;
     Animator animator;
     Health health;
+    GameManager manager;
 
     private void Start()
     {
@@ -20,6 +21,12 @@ public class MainCharacterMovement : MonoBehaviour
             Debug.Log("Could not set rigid body");
         }
 
+        manager = FindObjectOfType<GameManager>();
+        if(!manager)
+        {
+            Debug.Log("Couldn't grab manager");
+        }
+
         attack = GetComponent<Attack>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
@@ -27,6 +34,7 @@ public class MainCharacterMovement : MonoBehaviour
 
     void Update()
     {
+
         // check to see if we should die
         if(health.GetHealth() <= 0)
         {

@@ -31,6 +31,8 @@ public class Health : MonoBehaviour
     public void TakeDamage(float attackAmount)
     {
         health -= attackAmount;
+        Debug.Log("Setting damage trigger");
         animator.SetTrigger("damage");
+        Debug.Log("Remaining health is " + health);
     }
 }

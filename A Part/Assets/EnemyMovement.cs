@@ -103,9 +103,15 @@ public class EnemyMovement : MonoBehaviour
             Animator mainCharacterAnimatior = collision.gameObject.GetComponent<Animator>();
             if(!mainCharacterAnimatior.GetCurrentAnimatorStateInfo(0).IsName("attacking"))
             {
+                Debug.Log("Enemy hit you!");
                 enemyAttack.setCurrentAttackTarget(collision.gameObject);
                 enemyAttack.DoAttack();
             } 
+            else
+            {
+                Debug.Log("Enemy was hit!");
+                enemyHealth.TakeDamage(mainAttack.GetAttack());
+            }
 
             // TODO: might need to make it easier to take damage
         }
@@ -114,5 +120,6 @@ public class EnemyMovement : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         enemyAttack.setCurrentAttackTarget(null);
+        Debug.Log("Left collision");
     }
 }
