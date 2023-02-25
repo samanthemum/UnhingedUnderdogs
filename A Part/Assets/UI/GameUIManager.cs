@@ -15,12 +15,14 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private Image healthSlider;
 
     [Header("Tutorial Objects")]
+    [SerializeField] private GameObject[] TutorialActions;
     [SerializeField] private GameObject storyUI;
-    [SerializeField] private GameObject attackUI;
-    [SerializeField] private GameObject swapUI;
+    //[SerializeField] private GameObject attackUI;
+    //[SerializeField] private GameObject swapUI;
     [SerializeField] private string[] TutorialTexts;
     [SerializeField] private TextMeshProUGUI storyText;
     private int StoryIndex;
+    private int ActionIndex;
     private bool isTutorial;
 
     // Start is called before the first frame update
@@ -32,6 +34,7 @@ public class GameUIManager : MonoBehaviour
         TutorialMenu.SetActive(true);
         healthSlider.fillAmount = 1.0f;
         Time.timeScale = 0.0f;
+        ActionIndex = 0;
         isTutorial = false;
 
         StartTutorial();
@@ -43,8 +46,11 @@ public class GameUIManager : MonoBehaviour
     {
         
         storyUI.SetActive(true);
-        attackUI.SetActive(false) ;
-        swapUI.SetActive(false) ;
+        //Turns off all tutorial action UI
+        for(int i = 0;i  < TutorialActions.Length; i++)
+        {
+            TutorialActions[i].SetActive(false);
+        }
         StoryIndex = -1;
         showNextStoryIndex();
     }
@@ -54,6 +60,7 @@ public class GameUIManager : MonoBehaviour
     {
         if(StoryIndex >= TutorialTexts.Length-1)
         {
+            storyUI.SetActive(false);
             endStory();
         }
         else
@@ -66,22 +73,38 @@ public class GameUIManager : MonoBehaviour
     void endStory()
     {
         
-        storyUI.SetActive(false);
-        attackUI.SetActive(true);
+        //storyUI.SetActive(false);
+        //attackUI.SetActive(true);
         GameplayUI.SetActive(true);
+        TutorialActions[0].SetActive(true);
         Time.timeScale = 1.0f;
         isTutorial = true;
     }
 
-    public void setSwapUI()
+    //public void setSwapUI()
+    //{
+    //    swapUI.SetActive(true);
+    //    attackUI.SetActive(false);
+    //}
+
+    public void displayNextAction()
     {
-        swapUI.SetActive(true);
-        attackUI.SetActive(false);
+        if(ActionIndex >= TutorialActions.Length)
+        {
+            endTutorial();
+            TutorialActions[ActionIndex].SetActive(true);
+            
+        } else
+        {
+            TutorialActions[ActionIndex++].SetActive(false);
+            TutorialActions[ActionIndex].SetActive(true);
+        }
+        
     }
 
     public void endTutorial()
     {
-        swapUI.SetActive(false);
+        //swapUI.SetActive(false);
         isTutorial = false;
     }
 
@@ -96,12 +119,18 @@ public class GameUIManager : MonoBehaviour
 
         if (isTutorial)
         {
-            if (Input.GetKeyUp(KeyCode.E) && attackUI.activeInHierarchy)
+            if ((Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
+                && TutorialActions[0].activeInHierarchy)
             {
-                setSwapUI();
+                displayNextAction();
             }
 
-            if (Input.GetKeyUp(KeyCode.Q) && swapUI.activeInHierarchy)
+            if (Input.GetKeyUp(KeyCode.E) && TutorialActions[1].activeInHierarchy)
+            {
+                displayNextAction();
+            }
+
+            if (Input.GetKeyUp(KeyCode.Q) && TutorialActions[2].activeInHierarchy)
             {
                 endTutorial();  
             }
