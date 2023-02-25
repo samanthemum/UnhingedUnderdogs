@@ -40,6 +40,13 @@ public class Attack : MonoBehaviour
             animator.SetTrigger("attack");
             currentCoolDownTime = attackCoolDown;
             Debug.Log("You attacked");
+
+            // check to ensure the enemy is something that can actually be damaged
+            Health enemyHealth = currentAttackTarget.GetComponent<Health>();
+            if(enemyHealth)
+            {
+                enemyHealth.TakeDamage(attackDamage);
+            }
         }
         
     }

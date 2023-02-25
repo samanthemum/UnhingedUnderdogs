@@ -10,6 +10,7 @@ public class MainCharacterMovement : MonoBehaviour
     [SerializeField] Rigidbody rigidbody;
     [SerializeField] Attack attack;
     Animator animator;
+    Health health;
 
     private void Start()
     {
@@ -21,10 +22,17 @@ public class MainCharacterMovement : MonoBehaviour
 
         attack = GetComponent<Attack>();
         animator = GetComponent<Animator>();
+        health = GetComponent<Health>();
     }
 
     void Update()
     {
+        // check to see if we should die
+        if(health.GetHealth() <= 0)
+        {
+            Debug.Log("You died!");
+        }
+
         float horizontalComponent = Input.GetAxis("Horizontal");
         float verticalComponent = Input.GetAxis("Vertical");
         
@@ -54,4 +62,5 @@ public class MainCharacterMovement : MonoBehaviour
     {
         attack.setCurrentAttackTarget(null);
     }
+
 }

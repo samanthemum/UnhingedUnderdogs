@@ -9,9 +9,11 @@ public class EnemyMovement : MonoBehaviour
     Rigidbody enemyRB;
     NavMeshAgent navMeshAgent;
     Attack enemyAttack;
+    Health enemyHealth;
 
     // Character Information
     Rigidbody mainCharacterRB;
+    Attack mainAttack;
     Vector3 targetPosition = new Vector3(0.0f, 0.0f, 0.0f);
     [SerializeField] float enemySpeed_normal = .10f;
     [SerializeField] float enemySpeed_inRange = .10f;
@@ -25,6 +27,12 @@ public class EnemyMovement : MonoBehaviour
         if (!mainCharacterRB)
         {
             Debug.Log("Could not find main character");
+        }
+
+        mainAttack = GameObject.FindGameObjectWithTag("main character").GetComponent<Attack>();
+        if (!mainAttack)
+        {
+            Debug.Log("Could not find main character attack");
         }
 
         enemyRB = GetComponent<Rigidbody>();
@@ -43,6 +51,12 @@ public class EnemyMovement : MonoBehaviour
         if(!enemyAttack)
         {
             Debug.Log("Failed to get enemy attack component");
+        }
+
+        enemyHealth = GetComponent<Health>();
+        if(!enemyHealth)
+        {
+            Debug.Log("Failed to get enemy health");
         }
     }
 
@@ -92,11 +106,8 @@ public class EnemyMovement : MonoBehaviour
                 enemyAttack.setCurrentAttackTarget(collision.gameObject);
                 enemyAttack.DoAttack();
             } 
-            
-            else
-            {
-                // take damage
-            }
+
+            // TODO: might need to make it easier to take damage
         }
     }
 

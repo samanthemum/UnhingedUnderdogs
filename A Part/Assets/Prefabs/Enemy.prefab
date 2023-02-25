@@ -145,7 +145,7 @@ Animator:
   m_GameObject: {fileID: 5324637739735425907}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c537eb700a9e7e645a04cc8ead023c9d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -170,7 +170,6 @@ MonoBehaviour:
   enemySpeed_normal: 2
   enemySpeed_inRange: 4
   speedUpRange: 0.001
-  maxTargetError: 0.05
   reactionTimeInFrames: 5
 --- !u!195 &1961743926
 NavMeshAgent:
