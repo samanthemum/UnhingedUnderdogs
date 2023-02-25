@@ -10,12 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2393364583635044437}
   - component: {fileID: 8022489690231289724}
-  - component: {fileID: 6799093671653479381}
   - component: {fileID: 1606634772170403762}
   - component: {fileID: 2061763484037733033}
   - component: {fileID: 1451511978676942744}
   - component: {fileID: 5646890970339481808}
   - component: {fileID: 1961743926}
+  - component: {fileID: 230562590}
+  - component: {fileID: 1964514671}
+  - component: {fileID: 6943315610271695245}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -90,22 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!54 &6799093671653479381
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5324637739735425907}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!65 &1606634772170403762
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -117,8 +103,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.16, y: 0.16, z: 0.05726747}
+  m_Center: {x: 0, y: 0, z: 0.0029100757}
 --- !u!114 &2061763484037733033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +131,7 @@ Animator:
   m_GameObject: {fileID: 5324637739735425907}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c537eb700a9e7e645a04cc8ead023c9d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -169,8 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed_normal: 2
   enemySpeed_inRange: 4
-  speedUpRange: 0.001
-  maxTargetError: 0.05
+  speedUpRange: 0
   reactionTimeInFrames: 5
 --- !u!195 &1961743926
 NavMeshAgent:
@@ -194,3 +179,49 @@ NavMeshAgent:
   m_BaseOffset: 0.08
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &230562590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324637739735425907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae49403463a7504db794a850a03c2c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+--- !u!54 &1964514671
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324637739735425907}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 2
+--- !u!114 &6943315610271695245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324637739735425907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330c98d6333257e49839a7946f96ef0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  speed: 0
+  attack: 0
+  health: 0
+  animator: {fileID: 0}
