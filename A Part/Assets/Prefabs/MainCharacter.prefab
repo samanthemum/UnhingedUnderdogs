@@ -99,14 +99,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6653127294182002313}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 2
+  m_Drag: 0.01
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
+  m_Constraints: 116
+  m_CollisionDetection: 2
 --- !u!65 &6653127294182002318
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -118,8 +118,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.1415121, y: 0.14937471, z: 0.10404315}
+  m_Center: {x: -0.0064786375, y: 0.005312644, z: 0.021889035}
 --- !u!114 &6653127294182002316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,9 +132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6d7e1242a84054e80143dd46d9970c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterSpeed: 0.1
+  characterSpeed: 80
   rigidbody: {fileID: 0}
   attack: {fileID: 0}
+  maxVelocity: 3
 --- !u!114 &6653127294182002323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 10
   currentCoolDownTime: 0
-  attackCoolDown: 0.5
+  attackCoolDown: 0.1
   animator: {fileID: 0}
 --- !u!95 &6653127294182002322
 Animator:

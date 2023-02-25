@@ -9,6 +9,7 @@ public class MainCharacterMovement : MonoBehaviour
      [SerializeField] float characterSpeed = 1.0f;
     [SerializeField] Rigidbody rigidbody;
     [SerializeField] Attack attack;
+    [SerializeField] float maxVelocity = 10.0f;
     Animator animator;
     Health health;
     GameManager manager;
@@ -46,9 +47,17 @@ public class MainCharacterMovement : MonoBehaviour
         
         if(rigidbody)
         {
-            Vector3 currentPosition = rigidbody.transform.position;
-            Vector3 targetPosition = new Vector3(currentPosition.x + horizontalComponent * characterSpeed, currentPosition.y, currentPosition.z + verticalComponent * characterSpeed);
-            rigidbody.MovePosition(targetPosition);
+            //Vector3 currentPosition = rigidbody.transform.position;
+            //Vector3 targetPosition = new Vector3(currentPosition.x + horizontalComponent * characterSpeed, currentPosition.y, currentPosition.z + verticalComponent * characterSpeed);
+            // GetComponent<Rigidbody>().velocity = characterSpeed * (new Vector3(horizontalComponent, GetComponent<Rigidbody>().velocity.y, verticalComponent));
+            if(rigidbody.velocity.magnitude < maxVelocity)
+            {
+                GetComponent<Rigidbody>().AddForce(characterSpeed * (new Vector3(horizontalComponent, GetComponent<Rigidbody>().velocity.y, verticalComponent)));
+            } else
+            {
+                rigidbody.velocity = rigidbody.velocity.normalized * maxVelocity;
+            }
+            
         }
 
         // Do attacks

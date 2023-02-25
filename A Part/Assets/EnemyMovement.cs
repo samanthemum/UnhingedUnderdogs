@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     // Enemy Information
-    Rigidbody enemyRB;
     NavMeshAgent navMeshAgent;
     Attack enemyAttack;
     Health enemyHealth;
@@ -35,12 +34,6 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("Could not find main character attack");
         }
 
-        enemyRB = GetComponent<Rigidbody>();
-        if (!enemyRB)
-        {
-            Debug.Log("Failed to get enemy rigidbody");
-        }
-
         navMeshAgent = GetComponent<NavMeshAgent>();
         if (!navMeshAgent)
         {
@@ -62,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
 
     bool inRange()
     {
-        if ((targetPosition - enemyRB.transform.position).magnitude < speedUpRange)
+        if ((targetPosition - this.transform.position).magnitude < speedUpRange)
         {
             return true;
         }
