@@ -74,4 +74,9 @@ public class Attack : MonoBehaviour
     {
         return attackDamage;
     }
+
+    public void SetAttack(float newAttack)
+    {
+        attackDamage = newAttack;
+    }
 }

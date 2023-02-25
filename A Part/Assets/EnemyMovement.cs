@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
     Attack mainAttack;
     Vector3 targetPosition = new Vector3(0.0f, 0.0f, 0.0f);
     [SerializeField] float enemySpeed_normal = .10f;
-    [SerializeField] float enemySpeed_inRange = .10f;
+    [SerializeField] float enemySpeed_inRange = .20f;
     [SerializeField] float speedUpRange = .001f;
     [SerializeField] int reactionTimeInFrames = 5;
     int currentFrame = -1;
@@ -67,6 +67,12 @@ public class EnemyMovement : MonoBehaviour
     //// TODO: Add nav mesh
     void Update()
     {
+        // check to see if we're dead
+        if(enemyHealth.GetHealth() <= 0)
+        {
+            Object.Destroy(this.gameObject);
+        }
+
         // update the target every so many frames
         if (currentFrame == -1 || currentFrame == reactionTimeInFrames)
         {
@@ -116,5 +122,11 @@ public class EnemyMovement : MonoBehaviour
     {
         enemyAttack.setCurrentAttackTarget(null);
         Debug.Log("Left collision");
+    }
+
+    public void SetSpeed(float newSpeed)
+    {
+        enemySpeed_normal = newSpeed;
+        enemySpeed_inRange = newSpeed * 1.5f;
     }
 }

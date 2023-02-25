@@ -40,4 +40,9 @@ public class Health : MonoBehaviour
             this.GetComponent<Rigidbody>().AddForce(knockBackDirection * attackAmount * 150.0f);
         }
     }
+
+    public void SetHealth(float newHealth)
+    {
+        this.health = newHealth;
+    }
 }
