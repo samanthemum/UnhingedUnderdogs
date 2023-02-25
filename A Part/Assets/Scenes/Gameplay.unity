@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &501424832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5741778610778310343, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+  m_PrefabInstance: {fileID: 1191059094619294955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &888714944
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,9 +381,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1191059094354502233, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191059094616836764, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1191059094644066667, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
       propertyPath: m_Name
       value: GameplayCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191059094644066670, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: TutorialMenu
+      value: 
+      objectReference: {fileID: 501424832}
+    - target: {fileID: 1191059094644066670, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: TutorialTexts.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191059094644066670, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: TutorialTexts.Array.data[0]
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191059094644066670, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: TutorialTexts.Array.data[1]
+      value: b
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191059094644066670, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: TutorialTexts.Array.data[2]
+      value: c
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191059094644066670, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: TutorialTexts.Array.data[3]
+      value: d
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191059094644066670, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: TutorialTexts.Array.data[4]
+      value: e
       objectReference: {fileID: 0}
     - target: {fileID: 1191059094644066671, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
       propertyPath: m_Pivot.x
@@ -462,6 +503,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1191059094644066671, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808862166079897003, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121924170413285351, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
