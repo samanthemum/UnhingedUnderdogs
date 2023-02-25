@@ -9,6 +9,7 @@ public class MainCharacterMovement : MonoBehaviour
      [SerializeField] float characterSpeed = 1.0f;
     [SerializeField] Rigidbody rigidbody;
     [SerializeField] Attack attack;
+    Animator animator;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class MainCharacterMovement : MonoBehaviour
         }
 
         attack = GetComponent<Attack>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -38,5 +40,18 @@ public class MainCharacterMovement : MonoBehaviour
         {
             attack.DoAttack();
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.GetComponent<EnemyMovement>())
+        {
+            attack.setCurrentAttackTarget(collision.gameObject);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        attack.setCurrentAttackTarget(null);
     }
 }

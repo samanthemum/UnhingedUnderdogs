@@ -9,6 +9,8 @@ public class Attack : MonoBehaviour
     [SerializeField] float currentCoolDownTime = .0f;
     [SerializeField] float attackCoolDown = .5f;
     [SerializeField] Animator animator;
+    GameObject currentAttackTarget = null;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -24,6 +26,11 @@ public class Attack : MonoBehaviour
             currentCoolDownTime -= Time.deltaTime;
             currentCoolDownTime = currentCoolDownTime < 0 ? 0 : currentCoolDownTime;
         }
+    }
+
+    public void setCurrentAttackTarget(GameObject gameObject)
+    {
+        currentAttackTarget = gameObject;
     }
 
     public void DoAttack()

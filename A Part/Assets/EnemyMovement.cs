@@ -8,14 +8,14 @@ public class EnemyMovement : MonoBehaviour
     // Enemy Information
     Rigidbody enemyRB;
     NavMeshAgent navMeshAgent;
+    Attack enemyAttack;
+
     // Character Information
     Rigidbody mainCharacterRB;
     Vector3 targetPosition = new Vector3(0.0f, 0.0f, 0.0f);
     [SerializeField] float enemySpeed_normal = .10f;
     [SerializeField] float enemySpeed_inRange = .10f;
     [SerializeField] float speedUpRange = .001f;
-    [SerializeField] float maxTargetError = .05f;
-    float currentProgress = 0.0f;
     [SerializeField] int reactionTimeInFrames = 5;
     int currentFrame = -1;
 
@@ -37,6 +37,12 @@ public class EnemyMovement : MonoBehaviour
         if (!navMeshAgent)
         {
             Debug.Log("Failed to get enemy rigidbody");
+        }
+
+        enemyAttack = GetComponent<Attack>();
+        if(!enemyAttack)
+        {
+            Debug.Log("Failed to get enemy attack component");
         }
     }
 
@@ -73,5 +79,29 @@ public class EnemyMovement : MonoBehaviour
         {
             navMeshAgent.speed = enemySpeed_normal;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "main character")
+        {
+            // check to make sure the main character isn't attacking
+            Animator mainCharacterAnimatior = collision.gameObject.GetComponent<Animator>();
+            if(!mainCharacterAnimatior.GetCurrentAnimatorStateInfo(0).IsName("attacking"))
+            {
+                enemyAttack.setCurrentAttackTarget(collision.gameObject);
+                enemyAttack.DoAttack();
+            } 
+            
+            else
+            {
+                // take damage
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        enemyAttack.setCurrentAttackTarget(null);
     }
 }
