@@ -7,14 +7,17 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] float timePerSpawn = 10.0f;
     [SerializeField] GameObject enemyToSpawn;
+    [SerializeField] GameObject alternateLocationObject;
     float currentTime = -1.0f;
     float totalTime = 0.0f;
     EnemySpecs[] specs;
+    Transform[] alternateLocations;
 
     void Start()
     {
         // get our possible enemy variations
         specs = GetComponentsInChildren<EnemySpecs>();
+        alternateLocations = alternateLocationObject.GetComponentsInChildren<Transform>();
     }
 
     // Update is called once per frame
@@ -23,6 +26,13 @@ public class EnemySpawner : MonoBehaviour
         if(currentTime < 0.0f || currentTime >= timePerSpawn)
         {
             
+            // move to new location
+            int locationIndex = (int)Mathf.Round(Random.Range(0.0f, alternateLocations.Length - 1.0f));
+            Vector3 newPosition;
+            Quaternion newRotation;
+            Debug.Log("Locations length is " + alternateLocations);
+            alternateLocations[locationIndex].GetPositionAndRotation(out newPosition, out newRotation);
+            this.gameObject.transform.SetPositionAndRotation(alternateLocations[locationIndex].transform.position, alternateLocations[locationIndex].transform.rotation);
 
             // spawn stuff
             int numberToSpawn = (int)(totalTime / timePerSpawn / 2.0f);
