@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.5244027, g: 0.5123989, b: 0.5139678, a: 1}
+  m_IndirectSpecularColor: {r: 0.20837422, g: 0.20837422, b: 0.20837422, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -128,14 +128,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6653127294182002313, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
   m_PrefabInstance: {fileID: 6653127295128254563}
   m_PrefabAsset: {fileID: 0}
---- !u!81 &505389257
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505389247}
-  m_Enabled: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,6 +462,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NavMesh
       objectReference: {fileID: 0}
+    - target: {fileID: 8922824565176635961, guid: 82e7b6e7aae184a47a05096d1f3d03e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82e7b6e7aae184a47a05096d1f3d03e4, type: 3}
 --- !u!1001 &6653127295128254563
@@ -479,22 +475,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 268070500438737324, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 9100000, guid: 87535bf95efdb2d49acc3def1a24c5af, type: 2}
+    - target: {fileID: 5400325417293487971, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
+      propertyPath: defense
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400325417293487971, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 9100000, guid: 87535bf95efdb2d49acc3def1a24c5af, type: 2}
     - target: {fileID: 6653127294182002313, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
       propertyPath: m_Name
       value: MainCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 6653127294182002316, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
-      propertyPath: hitNoise
+      propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 8300000, guid: 4c3b8278b9bffa84aa807358c9f94ca2, type: 3}
-    - target: {fileID: 6653127294182002316, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
-      propertyPath: footsteps
-      value: 
-      objectReference: {fileID: 8300000, guid: c306e5ef8e426404ca5437ce976492d1, type: 3}
-    - target: {fileID: 6653127294182002316, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
-      propertyPath: attackedNoise
-      value: 
-      objectReference: {fileID: 8300000, guid: 23a3c32e5946a6d4685c1c082f2f4b37, type: 3}
+      objectReference: {fileID: 4641454818262515265, guid: 0bdab329d7fc90a4b89cef210b9bb3a6, type: 3}
+    - target: {fileID: 6653127294182002317, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653127294182002317, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6653127294182002319, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -537,10 +545,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6653127294182002319, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6653127294715565329, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

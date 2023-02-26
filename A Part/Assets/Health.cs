@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField] float health = 100.0f;
     Animator animator;
     public AudioClip damageSound;
+    float defense = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,14 +32,14 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float attackAmount, Vector3 knockBackDirection)
     {
-        health -= attackAmount;
+        health -= (attackAmount - defense);
         Debug.Log("Setting damage trigger");
         animator.SetTrigger("damage");
         Debug.Log("Remaining health is " + health);
 
         if (this.GetComponent<Rigidbody>())
         {
-            this.GetComponent<Rigidbody>().AddForce(knockBackDirection * attackAmount * 150.0f);
+            this.GetComponent<Rigidbody>().AddForce(knockBackDirection * 1500.0f);
         }
 
         if(this.GetComponent<AudioSource>())
@@ -52,5 +53,10 @@ public class Health : MonoBehaviour
     public void SetHealth(float newHealth)
     {
         this.health = newHealth;
+    }
+
+    public void SetDefense(float newDefense)
+    {
+        this.defense = newDefense;
     }
 }

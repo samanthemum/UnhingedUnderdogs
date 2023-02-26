@@ -22,14 +22,21 @@ public class EnemySpawner : MonoBehaviour
     {
         if(currentTime < 0.0f || currentTime >= timePerSpawn)
         {
+            
+
+            // spawn stuff
+            int numberToSpawn = (int)(totalTime / timePerSpawn);
+
+            if(currentTime < 0)
+            {
+                numberToSpawn = 1;
+            }
+
             // reset timer
             currentTime = 0.0f;
 
-            // spawn stuff
-            int numberToSpawn = (int)Mathf.Pow(2.0f, ((float)((int)(totalTime / timePerSpawn))));
-
             // create enemies from prefab
-           StartCoroutine(SpawnEnemies(numberToSpawn));
+            StartCoroutine(SpawnEnemies(numberToSpawn));
         }
         
         // increment timer
