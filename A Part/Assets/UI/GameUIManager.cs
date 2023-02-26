@@ -159,7 +159,10 @@ public class GameUIManager : MonoBehaviour
             }
         }
 
-
+        if (Input.GetButtonDown("Pause"))
+        {
+            OpenPausePanel();
+        }
 
         //update player stats onto gameplay UI
         healthSlider.fillAmount = Mathf.Clamp(player.GetComponent<Health>().GetHealth()/100, 0, 1);
