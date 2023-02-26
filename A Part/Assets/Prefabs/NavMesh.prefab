@@ -239,10 +239,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  speed: 0.5
+  speed: 1
   attack: 50
   health: 50
   animator: {fileID: 9100000, guid: c537eb700a9e7e645a04cc8ead023c9d, type: 2}
+  attackedSound: {fileID: 8300000, guid: 0ee126d626039894891b47a9ab9975a7, type: 3}
+  deadSound: {fileID: 8300000, guid: 46d8b47c404037a4588e291499f1cb7f, type: 3}
 --- !u!1 &326801746629962657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,10 +1226,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  speed: 2
+  speed: 3
   attack: 10
   health: 20
   animator: {fileID: 9100000, guid: c537eb700a9e7e645a04cc8ead023c9d, type: 2}
+  attackedSound: {fileID: 8300000, guid: 9a1d0f23b97a93349953ffed0d607027, type: 3}
+  deadSound: {fileID: 8300000, guid: 46d8b47c404037a4588e291499f1cb7f, type: 3}
 --- !u!1 &3974245705376714319
 GameObject:
   m_ObjectHideFlags: 0
