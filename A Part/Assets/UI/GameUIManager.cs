@@ -27,6 +27,7 @@ public class GameUIManager : MonoBehaviour
     private int StoryIndex;
     private int ActionIndex;
     private bool isTutorial;
+    private bool inCouroutine = false;
 
     // Start is called before the first frame update
     void Start()
@@ -105,8 +106,8 @@ public class GameUIManager : MonoBehaviour
             TutorialActions[ActionIndex++].SetActive(false);
             TutorialActions[ActionIndex].SetActive(true);
         }
-        
-        
+
+        inCouroutine = false;
     }
 
     public void endTutorial()
@@ -124,21 +125,24 @@ public class GameUIManager : MonoBehaviour
             OpenPausePanel();
         }
 
-        if (isTutorial)
+        if (isTutorial && !inCouroutine)
         {
-            if (Input.GetKeyUp(KeyCode.W)
+            if ((Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
                 && TutorialActions[0].activeInHierarchy)
             {
+                inCouroutine = true;
                 StartCoroutine(displayNextAction());
             }
 
-            if (Input.GetKeyUp(KeyCode.E) && TutorialActions[1].activeInHierarchy)
+            if (Input.GetAxis("Attack") != 0 && TutorialActions[1].activeInHierarchy)
             {
+                inCouroutine = true;
                 StartCoroutine(displayNextAction());
             }
 
-            if (Input.GetKeyUp(KeyCode.Q) && TutorialActions[2].activeInHierarchy)
+            if (Input.GetAxis("Swap") != 0 && TutorialActions[2].activeInHierarchy)
             {
+                inCouroutine = true;
                 StartCoroutine(displayNextAction());
                 //endTutorial();  
             }
