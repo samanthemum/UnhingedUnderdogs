@@ -65,11 +65,9 @@ public class Attack : MonoBehaviour
                 Debug.Log("Dealing damage");
                 Vector3 knockBackDirection = (currentAttackTarget.transform.position - this.transform.position).normalized;
                 knockBackDirection.y = 0.0f;
+                knockBackDirection = knockBackDirection.normalized;
                 enemyHealth.TakeDamage(attackDamage, knockBackDirection);
 
-                // do knockback vector
-                
-                knockBackDirection.y = 0.0f;
             } else
             {
                 Debug.Log("Current target does not have attack component");

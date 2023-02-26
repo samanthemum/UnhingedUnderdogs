@@ -80,6 +80,8 @@ public class EnemyMovement : MonoBehaviour
         {
             audioSource.clip = deathSound;
             audioSource.Play();
+            FindObjectOfType<GameManager>().ScoreByEnemyKill();
+            StartCoroutine(KillEnemy());
         }
 
         // update the target every so many frames
@@ -120,6 +122,7 @@ public class EnemyMovement : MonoBehaviour
                 Debug.Log("Enemy was hit!");
                 Vector3 direction = (collision.transform.position - this.transform.position).normalized;
                 direction.y = 0;
+                direction = direction.normalized;
                 enemyHealth.TakeDamage(mainAttack.GetAttack(), direction);
                 audioSource.Play();
             }
@@ -138,5 +141,11 @@ public class EnemyMovement : MonoBehaviour
     {
         enemySpeed_normal = newSpeed;
         enemySpeed_inRange = newSpeed * 1.5f;
+    }
+
+    IEnumerator KillEnemy()
+    {
+        yield return new WaitForSeconds(.5f);
+        Object.Destroy(this.gameObject);
     }
 }

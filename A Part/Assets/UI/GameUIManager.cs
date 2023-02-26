@@ -27,6 +27,12 @@ public class GameUIManager : MonoBehaviour
     private int StoryIndex;
     private int ActionIndex;
     private bool isTutorial;
+    private bool inCouroutine = false;
+
+    [Header("GameManager")]
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI timeText;
+    [SerializeField] GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +45,7 @@ public class GameUIManager : MonoBehaviour
         Time.timeScale = 0.0f;
         ActionIndex = 0;
         isTutorial = false;
+        gameManager = FindObjectOfType<GameManager>();
 
         StartTutorial();
     }
@@ -105,8 +112,8 @@ public class GameUIManager : MonoBehaviour
             TutorialActions[ActionIndex++].SetActive(false);
             TutorialActions[ActionIndex].SetActive(true);
         }
-        
-        
+
+        inCouroutine = false;
     }
 
     public void endTutorial()
@@ -124,21 +131,24 @@ public class GameUIManager : MonoBehaviour
             OpenPausePanel();
         }
 
-        if (isTutorial)
+        if (isTutorial && !inCouroutine)
         {
-            if (Input.GetKeyUp(KeyCode.W)
+            if ((Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
                 && TutorialActions[0].activeInHierarchy)
             {
+                inCouroutine = true;
                 StartCoroutine(displayNextAction());
             }
 
-            if (Input.GetKeyUp(KeyCode.E) && TutorialActions[1].activeInHierarchy)
+            if (Input.GetAxis("Attack") != 0 && TutorialActions[1].activeInHierarchy)
             {
+                inCouroutine = true;
                 StartCoroutine(displayNextAction());
             }
 
-            if (Input.GetKeyUp(KeyCode.Q) && TutorialActions[2].activeInHierarchy)
+            if (Input.GetAxis("Swap") != 0 && TutorialActions[2].activeInHierarchy)
             {
+                inCouroutine = true;
                 StartCoroutine(displayNextAction());
                 //endTutorial();  
             }
@@ -149,6 +159,18 @@ public class GameUIManager : MonoBehaviour
         //update player stats onto gameplay UI
         healthSlider.fillAmount = Mathf.Clamp(player.GetComponent<Health>().GetHealth()/100, 0, 1);
 
+        if(player.GetComponent<Health>().GetHealth() <= 0)
+        {
+            StartCoroutine(endGame());
+        }
+    }
+
+    IEnumerator endGame()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        Time.timeScale = 0.0f;
+        openDeathMenu();
 
     }
 
@@ -182,6 +204,9 @@ public class GameUIManager : MonoBehaviour
 
     public void openDeathMenu()
     {
+        scoreText.SetText("Final Score: " + gameManager.GetScore());
+        timeText.SetText("Final Time: " + Mathf.Round(gameManager.GetTimeInSeconds()));
+        GameplayUI.SetActive(false);
         DeathMenu.SetActive(true);
         Time.timeScale = 0.0f;
     }
