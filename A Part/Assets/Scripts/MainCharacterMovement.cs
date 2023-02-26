@@ -14,6 +14,14 @@ public class MainCharacterMovement : MonoBehaviour
     Health health;
     GameManager manager;
 
+    // Audio clips
+    public AudioClip attackedNoise;
+    public AudioClip hitNoise;
+    public AudioSource footstepsSource;
+
+    // Audio source
+    [SerializeField] AudioSource sourceFootsteps;
+
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -31,6 +39,9 @@ public class MainCharacterMovement : MonoBehaviour
         attack = GetComponent<Attack>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
+
+        attack.attackAudioClip = hitNoise;
+        health.damageSound = attackedNoise;
     }
 
     void Update()
@@ -58,6 +69,7 @@ public class MainCharacterMovement : MonoBehaviour
                 rigidbody.velocity = rigidbody.velocity.normalized * maxVelocity;
             }
             
+
         }
 
         // Do attacks
