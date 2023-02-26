@@ -153,6 +153,18 @@ public class GameUIManager : MonoBehaviour
         //update player stats onto gameplay UI
         healthSlider.fillAmount = Mathf.Clamp(player.GetComponent<Health>().GetHealth()/100, 0, 1);
 
+        if(player.GetComponent<Health>().GetHealth() <= 0)
+        {
+            StartCoroutine(endGame());
+        }
+    }
+
+    IEnumerator endGame()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        Time.timeScale = 0.0f;
+        DeathMenu.SetActive(true);
 
     }
 

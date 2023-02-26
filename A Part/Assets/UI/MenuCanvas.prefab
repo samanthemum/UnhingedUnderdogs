@@ -267,6 +267,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9070316336355627014}
     m_Modifications:
+    - target: {fileID: 2069077684661777237, guid: beb5fb5e007f3394e922dae890ead767, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069077684661777237, guid: beb5fb5e007f3394e922dae890ead767, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069077684661777237, guid: beb5fb5e007f3394e922dae890ead767, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 289
+      objectReference: {fileID: 0}
     - target: {fileID: 2663663899543322208, guid: beb5fb5e007f3394e922dae890ead767, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -322,6 +334,14 @@ PrefabInstance:
     - target: {fileID: 3100123269119650500, guid: beb5fb5e007f3394e922dae890ead767, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258622972384329507, guid: beb5fb5e007f3394e922dae890ead767, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258622972384329507, guid: beb5fb5e007f3394e922dae890ead767, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5033452523351933733, guid: beb5fb5e007f3394e922dae890ead767, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -442,6 +462,18 @@ PrefabInstance:
     - target: {fileID: 6471197518000663067, guid: beb5fb5e007f3394e922dae890ead767, type: 3}
       propertyPath: m_Name
       value: MainMenuPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892097135594888940, guid: beb5fb5e007f3394e922dae890ead767, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892097135594888940, guid: beb5fb5e007f3394e922dae890ead767, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892097135594888940, guid: beb5fb5e007f3394e922dae890ead767, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -264
       objectReference: {fileID: 0}
     - target: {fileID: 8395797579153782938, guid: beb5fb5e007f3394e922dae890ead767, type: 3}
       propertyPath: m_Color.a
