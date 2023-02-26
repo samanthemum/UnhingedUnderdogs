@@ -18,7 +18,6 @@ public class MainCharacterMovement : MonoBehaviour
     // Audio clips
     public AudioClip wasDamagedNoise;
     public AudioClip didAttackNoise;
-    public AudioSource footstepsSource;
 
     // Audio source
     [SerializeField] AudioSource sourceFootsteps;
@@ -90,11 +89,6 @@ public class MainCharacterMovement : MonoBehaviour
 
         float horizontalComponent = Input.GetAxis("Horizontal");
         float verticalComponent = Input.GetAxis("Vertical");
-        if(horizontalComponent != 0 || verticalComponent != 0)
-        {
-            Vector3 direction = new Vector3(horizontalComponent, 0, verticalComponent);
-            lastForward = direction.normalized;
-        }
         
         if(rigidbody)
         {
