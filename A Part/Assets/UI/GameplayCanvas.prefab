@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5e76023054baf4bb48f290af37ecfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   GameplayUI: {fileID: 7121924170413285351}
   PauseMenu: {fileID: 1191059094354502233}
   DeathMenu: {fileID: 1191059094616836764}
@@ -1028,6 +1029,30 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1191059094644066670}
+    - target: {fileID: 1220547474723770771, guid: 20c84e2f3252d4a4983070050b3534f1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220547474723770771, guid: 20c84e2f3252d4a4983070050b3534f1, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220547474723770771, guid: 20c84e2f3252d4a4983070050b3534f1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220547474723770771, guid: 20c84e2f3252d4a4983070050b3534f1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220547474723770771, guid: 20c84e2f3252d4a4983070050b3534f1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220547474723770771, guid: 20c84e2f3252d4a4983070050b3534f1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -433
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20c84e2f3252d4a4983070050b3534f1, type: 3}
 --- !u!224 &1191059094616836755 stripped

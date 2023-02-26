@@ -7,6 +7,9 @@ using TMPro;
 
 public class GameUIManager : MonoBehaviour
 {
+    [Header("Player stats")]
+    [SerializeField] private GameObject player;
+
     [Header("Panels")]
     [SerializeField] private GameObject GameplayUI;
     [SerializeField] private GameObject PauseMenu;
@@ -141,9 +144,12 @@ public class GameUIManager : MonoBehaviour
             }
         }
 
-        //Bring up death menu when player dies
-        //Node: a delay will be a nice feature to add to this
-        
+
+
+        //update player stats onto gameplay UI
+        healthSlider.fillAmount = Mathf.Clamp(player.GetComponent<Health>().GetHealth()/100, 0, 1);
+
+
     }
 
     //IEnumerator delay(float delayTime)
