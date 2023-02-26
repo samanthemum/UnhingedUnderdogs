@@ -88,7 +88,11 @@ public class EnemyMovement : MonoBehaviour
         if (currentFrame == -1 || currentFrame == reactionTimeInFrames)
         {
             targetPosition = mainCharacterRB.transform.position;
-            navMeshAgent.destination = targetPosition;
+            if (mainCharacterRB && navMeshAgent.isOnNavMesh)
+            {
+                navMeshAgent.destination = targetPosition;
+            }
+            
         }
         else
         {

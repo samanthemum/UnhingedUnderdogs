@@ -24,7 +24,7 @@ public class TalismanController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.GetComponent<EnemyMovement>())
         {

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy_idle
+  m_Name: enemy_idle_2
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1642360536, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
-    - time: 0.13333334
-      value: {fileID: -1854775543, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
+      value: {fileID: 2111395807, guid: 99fb8dcbf07852842abed5f0b6f8718e, type: 3}
+    - time: 0.16666667
+      value: {fileID: -1475223609, guid: 99fb8dcbf07852842abed5f0b6f8718e, type: 3}
     - time: 0.33333334
-      value: {fileID: 1457839309, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
+      value: {fileID: 2111395807, guid: 99fb8dcbf07852842abed5f0b6f8718e, type: 3}
+    - time: 0.4
+      value: {fileID: 2111395807, guid: 99fb8dcbf07852842abed5f0b6f8718e, type: 3}
     attribute: sprite
     path: 
     classID: 114
@@ -44,15 +46,16 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 1642360536, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
-    - {fileID: -1854775543, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
-    - {fileID: 1457839309, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
+    - {fileID: 2111395807, guid: 99fb8dcbf07852842abed5f0b6f8718e, type: 3}
+    - {fileID: -1475223609, guid: 99fb8dcbf07852842abed5f0b6f8718e, type: 3}
+    - {fileID: 2111395807, guid: 99fb8dcbf07852842abed5f0b6f8718e, type: 3}
+    - {fileID: 2111395807, guid: 99fb8dcbf07852842abed5f0b6f8718e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.36666667
+    m_StopTime: 0.43333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

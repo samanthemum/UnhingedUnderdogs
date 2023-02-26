@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy_idle
+  m_Name: enemy_idle_1
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -21,10 +21,12 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 1642360536, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
-    - time: 0.13333334
+    - time: 0.2
       value: {fileID: -1854775543, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
-    - time: 0.33333334
+    - time: 0.43333334
       value: {fileID: 1457839309, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
+    - time: 0.5
+      value: {fileID: 1642360536, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
     attribute: sprite
     path: 
     classID: 114
@@ -47,12 +49,13 @@ AnimationClip:
     - {fileID: 1642360536, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
     - {fileID: -1854775543, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
     - {fileID: 1457839309, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
+    - {fileID: 1642360536, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.36666667
+    m_StopTime: 0.53333336
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
