@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class GameUIManager : MonoBehaviour
@@ -16,6 +17,10 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private GameObject DeathMenu;
     [SerializeField] private GameObject TutorialMenu;
     [SerializeField] private Image healthSlider;
+
+    [Header("Buttons")]
+    [SerializeField] private GameObject resumeButton;
+    [SerializeField] private GameObject homeButton;
 
     [Header("Tutorial Objects")]
     [SerializeField] private GameObject[] TutorialActions;
@@ -159,7 +164,7 @@ public class GameUIManager : MonoBehaviour
         //update player stats onto gameplay UI
         healthSlider.fillAmount = Mathf.Clamp(player.GetComponent<Health>().GetHealth()/100, 0, 1);
 
-        if(player.GetComponent<Health>().GetHealth() <= 0)
+        if(player.GetComponent <Health>().GetHealth() <= 0)
         {
             StartCoroutine(endGame());
         }
@@ -187,6 +192,8 @@ public class GameUIManager : MonoBehaviour
 
     public void OpenPausePanel()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(resumeButton);
         Time.timeScale = 0.0f;
         PauseMenu.SetActive(true);
     }
@@ -204,8 +211,13 @@ public class GameUIManager : MonoBehaviour
 
     public void openDeathMenu()
     {
+        //set event system to new panel
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(homeButton);
+
         scoreText.SetText("Final Score: " + gameManager.GetScore());
         timeText.SetText("Final Time: " + Mathf.Round(gameManager.GetTimeInSeconds()));
+        TutorialMenu.SetActive(false);
         GameplayUI.SetActive(false);
         DeathMenu.SetActive(true);
         Time.timeScale = 0.0f;

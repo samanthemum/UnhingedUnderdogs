@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 2076327796}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1594647930
@@ -493,6 +493,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!1 &2076327796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1265396474601766689, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+  m_PrefabInstance: {fileID: 1718936650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3472985802594980448
 PrefabInstance:
   m_ObjectHideFlags: 0
