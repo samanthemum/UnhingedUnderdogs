@@ -35,7 +35,11 @@ public class Health : MonoBehaviour
     {
         health -= (attackAmount - defense);
         Debug.Log("Setting damage trigger");
-        animator.SetTrigger("damage");
+        if(animator)
+        {
+            animator.SetTrigger("damage");
+        }
+        
         Debug.Log("Remaining health is " + health);
 
         if (this.GetComponent<Rigidbody>())

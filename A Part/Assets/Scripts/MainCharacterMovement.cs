@@ -102,7 +102,26 @@ public class MainCharacterMovement : MonoBehaviour
             {
                 rigidbody.velocity = rigidbody.velocity.normalized * maxVelocity;
             }
-            
+
+            if(rigidbody.velocity.magnitude > .0f)
+            {
+                animator.SetBool("IsWalking", true);
+                Debug.Log("And we're walkign!");
+                Debug.Log("Current animation state is " + animator.GetCurrentAnimatorStateInfo(0).IsName("Walking"));
+                if(horizontalComponent < 0)
+                {
+                    GetComponent<SpriteRenderer>().flipX = true;
+                } 
+                else
+                {
+                    GetComponent<SpriteRenderer>().flipX = false;
+                }
+            }
+            else
+            {
+                animator.SetBool("IsWalking", false);
+            }
+
         }
 
         // Do attacks
@@ -117,11 +136,14 @@ public class MainCharacterMovement : MonoBehaviour
             {
                 Debug.Log("Spawn projectile");
                 EnemyMovement target = FindObjectOfType<EnemyMovement>();
-                Vector3 projectileDirection = (target.transform.position - this.transform.position).normalized;
-                GameObject projectile = Instantiate(projectilePrefab, this.transform.position + .1f * projectileDirection, this.transform.rotation) as GameObject;
-                projectile.GetComponent<Rigidbody>().AddForce(projectileDirection * projectileSpeed);
-                projectile.GetComponent<TalismanController>().mainCharacterPosition = this.transform;
-                projectile.GetComponent<Attack>().SetAttack(attack.GetAttack());
+                if(target)
+                {
+                    Vector3 projectileDirection = (target.transform.position - this.transform.position).normalized;
+                    GameObject projectile = Instantiate(projectilePrefab, this.transform.position + .1f * projectileDirection, this.transform.rotation) as GameObject;
+                    projectile.GetComponent<Rigidbody>().AddForce(projectileDirection * projectileSpeed);
+                    projectile.GetComponent<TalismanController>().mainCharacterPosition = this.transform;
+                    projectile.GetComponent<Attack>().SetAttack(attack.GetAttack());
+                }
             }
         }
 

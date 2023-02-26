@@ -67,7 +67,7 @@ Transform:
   m_GameObject: {fileID: 6653127294182002313}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.77, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6653127294715565335}
@@ -154,8 +154,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.1775985, y: 4.8053927, z: 0.7872844}
-  m_Center: {x: 0.042933226, y: 0.09787455, z: -0.15891671}
+  m_Size: {x: 2.8842363, y: 4.8053927, z: 0.7583263}
+  m_Center: {x: 0, y: 0, z: -0.05598273}
 --- !u!114 &6653127294182002316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6653127294715565330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.23000002, z: -7.9}
+  m_LocalPosition: {x: 0, y: 0.96, z: -12.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: -1045387781, guid: 142bf35e543ad8c4495cf07a7db6335a, type: 3}
-  animator: {fileID: 9100000, guid: 87535bf95efdb2d49acc3def1a24c5af, type: 2}
+  animator: {fileID: 9100000, guid: 8e192715395212547bff04610502cd74, type: 2}
   attack: 15
   attackClip: {fileID: 8300000, guid: 366ccd0dbf717444eaac8de1d5c15797, type: 3}
   hitClip: {fileID: 8300000, guid: 62718bf88fdb8ff4c81ed19ff5839dc7, type: 3}

@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4641454818262515269}
   - component: {fileID: 4641454818262515270}
   - component: {fileID: 4641454818262515291}
-  - component: {fileID: 4641454818262515290}
   - component: {fileID: 6431427454207812717}
   - component: {fileID: 7186410769488728865}
   - component: {fileID: 7186410769488728867}
+  - component: {fileID: -4427254425436421576}
   m_Layer: 0
   m_Name: Talisman
   m_TagString: main character
@@ -137,26 +137,6 @@ MonoBehaviour:
   attackCoolDown: 0
   animator: {fileID: 0}
   attackAudioClip: {fileID: 0}
---- !u!95 &4641454818262515290
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4641454818262515265}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 87535bf95efdb2d49acc3def1a24c5af, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &6431427454207812717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,3 +261,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCharacterPosition: {fileID: 0}
   maxTime: 2
+--- !u!95 &-4427254425436421576
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4641454818262515265}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
