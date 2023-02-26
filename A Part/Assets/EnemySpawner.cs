@@ -25,9 +25,9 @@ public class EnemySpawner : MonoBehaviour
             
 
             // spawn stuff
-            int numberToSpawn = (int)(totalTime / timePerSpawn);
+            int numberToSpawn = (int)(totalTime / timePerSpawn / 2.0f);
 
-            if(currentTime < 0)
+            if(numberToSpawn == 0)
             {
                 numberToSpawn = 1;
             }

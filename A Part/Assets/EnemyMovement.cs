@@ -120,6 +120,7 @@ public class EnemyMovement : MonoBehaviour
                 Debug.Log("Enemy was hit!");
                 Vector3 direction = (collision.transform.position - this.transform.position).normalized;
                 direction.y = 0;
+                direction = direction.normalized;
                 enemyHealth.TakeDamage(mainAttack.GetAttack(), direction);
                 audioSource.Play();
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Health : MonoBehaviour
 {
@@ -38,8 +39,8 @@ public class Health : MonoBehaviour
         Debug.Log("Remaining health is " + health);
 
         if (this.GetComponent<Rigidbody>())
-        {
-            this.GetComponent<Rigidbody>().AddForce(knockBackDirection * 1500.0f);
+        { 
+            this.GetComponent<Rigidbody>().AddForce(knockBackDirection.normalized * 30.0f, ForceMode.Impulse);
         }
 
         if(this.GetComponent<AudioSource>())
