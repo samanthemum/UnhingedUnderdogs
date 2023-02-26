@@ -9,6 +9,8 @@ public class EnemyMovement : MonoBehaviour
     NavMeshAgent navMeshAgent;
     Attack enemyAttack;
     Health enemyHealth;
+    AudioSource audioSource;
+    public AudioClip deathSound;
 
     // Character Information
     Rigidbody mainCharacterRB;
@@ -51,6 +53,12 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.Log("Failed to get enemy health");
         }
+
+        audioSource = GetComponent<AudioSource>();
+        if(!audioSource)
+        {
+            Debug.Log("Can't find audio source");
+        }
     }
 
     bool inRange()
@@ -70,7 +78,8 @@ public class EnemyMovement : MonoBehaviour
         // check to see if we're dead
         if(enemyHealth.GetHealth() <= 0)
         {
-            Object.Destroy(this.gameObject);
+            audioSource.clip = deathSound;
+            audioSource.Play();
         }
 
         // update the target every so many frames
@@ -112,6 +121,7 @@ public class EnemyMovement : MonoBehaviour
                 Vector3 direction = (collision.transform.position - this.transform.position).normalized;
                 direction.y = 0;
                 enemyHealth.TakeDamage(mainAttack.GetAttack(), direction);
+                audioSource.Play();
             }
 
             // TODO: might need to make it easier to take damage

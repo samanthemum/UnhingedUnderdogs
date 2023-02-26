@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] float health = 100.0f;
     Animator animator;
+    public AudioClip damageSound;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,13 @@ public class Health : MonoBehaviour
         if (this.GetComponent<Rigidbody>())
         {
             this.GetComponent<Rigidbody>().AddForce(knockBackDirection * attackAmount * 150.0f);
+        }
+
+        if(this.GetComponent<AudioSource>())
+        {
+            AudioSource source = this.GetComponent<AudioSource>();
+            source.clip = damageSound;
+            source.Play();
         }
     }
 

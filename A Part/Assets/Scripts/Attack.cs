@@ -10,6 +10,7 @@ public class Attack : MonoBehaviour
     [SerializeField] float attackCoolDown = .5f;
     [SerializeField] Animator animator;
     GameObject currentAttackTarget = null;
+    public AudioClip attackAudioClip;
 
     void Start()
     {
@@ -44,6 +45,12 @@ public class Attack : MonoBehaviour
         animator.SetTrigger("attack");
         currentCoolDownTime = attackCoolDown;
         Debug.Log("You attacked");
+        if(this.GetComponent<AudioSource>())
+        {
+            AudioSource source = this.GetComponent<AudioSource>();
+            source.clip  = attackAudioClip;
+            source.Play();
+        }
 
         if (!currentAttackTarget)
         {
