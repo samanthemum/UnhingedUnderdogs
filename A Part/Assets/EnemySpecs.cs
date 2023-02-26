@@ -15,7 +15,7 @@ public class EnemySpecs : MonoBehaviour
 
 
 
-    public void SetStats(Sprite newSprite, float newSpeed, float newAttack, float newHealth, RuntimeAnimatorController newAnimator, AudioClip attackedSound, AudioClip deathSonud)
+    public void SetStats(Sprite newSprite, float newSpeed, float newAttack, float newHealth, AudioClip attackedSound, AudioClip deathSonud)
     {
         this.GetComponent<SpriteRenderer>().sprite = newSprite;
         this.GetComponent<Attack>().SetAttack(newAttack);
@@ -23,8 +23,5 @@ public class EnemySpecs : MonoBehaviour
         this.GetComponent<EnemyMovement>().SetSpeed(newSpeed);
         this.GetComponent<Attack>().attackAudioClip = attackedSound;
         this.GetComponent<EnemyMovement>().deathSound = deathSonud;
-
-        // don't know if this will work, will worry about it later
-        this.GetComponent<Animator>().runtimeAnimatorController = newAnimator;
     }
 }
