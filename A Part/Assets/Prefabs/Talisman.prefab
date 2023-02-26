@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 4641454818262515290}
   - component: {fileID: 6431427454207812717}
   - component: {fileID: 7186410769488728865}
-  - component: {fileID: 7186410769488728866}
   - component: {fileID: 7186410769488728867}
   m_Layer: 0
   m_Name: Talisman
@@ -268,14 +267,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &7186410769488728866
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4641454818262515265}
-  m_Enabled: 1
 --- !u!114 &7186410769488728867
 MonoBehaviour:
   m_ObjectHideFlags: 0

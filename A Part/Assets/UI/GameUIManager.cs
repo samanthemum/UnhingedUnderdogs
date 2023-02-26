@@ -29,6 +29,11 @@ public class GameUIManager : MonoBehaviour
     private bool isTutorial;
     private bool inCouroutine = false;
 
+    [Header("GameManager")]
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI timeText;
+    [SerializeField] GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +45,7 @@ public class GameUIManager : MonoBehaviour
         Time.timeScale = 0.0f;
         ActionIndex = 0;
         isTutorial = false;
+        gameManager = FindObjectOfType<GameManager>();
 
         StartTutorial();
     }
@@ -164,7 +170,7 @@ public class GameUIManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         Time.timeScale = 0.0f;
-        DeathMenu.SetActive(true);
+        openDeathMenu();
 
     }
 
@@ -198,6 +204,9 @@ public class GameUIManager : MonoBehaviour
 
     public void openDeathMenu()
     {
+        scoreText.SetText("Final Score: " + gameManager.GetScore());
+        timeText.SetText("Final Time: " + Mathf.Round(gameManager.GetTimeInSeconds()));
+        GameplayUI.SetActive(false);
         DeathMenu.SetActive(true);
         Time.timeScale = 0.0f;
     }
