@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455540105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0199, z: 0}
+  m_LocalPosition: {x: 0, y: -0.01693, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -458,7 +458,7 @@ Animator:
   m_GameObject: {fileID: 1956285903}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4b5f3fa0f3d2317479c24e5cbca541c4, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -478,7 +478,7 @@ PrefabInstance:
     - target: {fileID: 3472985801636461923, guid: 5cbd711053db0a34d8158e8b22af96af, type: 3}
       propertyPath: sprite
       value: 
-      objectReference: {fileID: 1642360536, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4015028692249368269, guid: 5cbd711053db0a34d8158e8b22af96af, type: 3}
       propertyPath: m_RootOrder
       value: 5
