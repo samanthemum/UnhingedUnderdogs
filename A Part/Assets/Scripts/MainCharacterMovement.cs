@@ -33,6 +33,8 @@ public class MainCharacterMovement : MonoBehaviour
     Vector3 lastForward;
     [SerializeField] GameObject projectilePrefab;
 
+
+
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -132,6 +134,11 @@ public class MainCharacterMovement : MonoBehaviour
 
         }
 
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Dodge"))
+        {
+           
+        }
+
         // Do attacks
         if (Input.GetButtonDown("Attack"))
         {
@@ -163,10 +170,18 @@ public class MainCharacterMovement : MonoBehaviour
             SetBuild(builds[currentBuildIndex]);
             swap.Play();
         }
+
+        // Do Dodges
+        if(Input.GetButtonDown("Dodge"))
+        {
+            Physics.IgnoreLayerCollision(3, 6, true);
+            animator.SetTrigger("dodge");
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        // check to see if it was an enemy
         if(collision.gameObject.GetComponent<EnemyMovement>())
         {
             attack.setCurrentAttackTarget(collision.gameObject);
@@ -176,6 +191,11 @@ public class MainCharacterMovement : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         attack.setCurrentAttackTarget(null);
+    }
+
+    private void ResetCollisionPhysics()
+    {
+        Physics.IgnoreLayerCollision(3, 6, false);
     }
 
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5728512371271015738}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Alternates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 505389259}
   - component: {fileID: 7795570258644909776}
   - component: {fileID: 7264964820731826714}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MainCharacter
   m_TagString: main character
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae49403463a7504db794a850a03c2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 200
   damageSound: {fileID: 0}
 --- !u!82 &-34295881301122071
 AudioSource:
@@ -5320,7 +5320,7 @@ GameObject:
   - component: {fileID: 6653127294715565335}
   - component: {fileID: 6653127294715565328}
   - component: {fileID: 365887686}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -5367,7 +5367,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 26.991467
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -5491,7 +5491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6363408765965571170}
   - component: {fileID: 5400325417293487971}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cleric
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5544,7 +5544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7366510280919989994}
   - component: {fileID: 268070500438737324}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Paladin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5580,7 +5580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: -372436786, guid: d8fca11e66e0f6e479d106503bea395d, type: 3}
   animator: {fileID: 9100000, guid: 87535bf95efdb2d49acc3def1a24c5af, type: 2}
-  attack: 20
+  attack: 30
   attackClip: {fileID: 8300000, guid: 4c3b8278b9bffa84aa807358c9f94ca2, type: 3}
   hitClip: {fileID: 8300000, guid: 23a3c32e5946a6d4685c1c082f2f4b37, type: 3}
   title: paladin
