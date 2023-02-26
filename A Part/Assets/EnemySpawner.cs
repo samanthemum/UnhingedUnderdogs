@@ -81,7 +81,8 @@ public class EnemySpawner : MonoBehaviour
 
             if(enemy.GetComponent<EnemySpecs>())
             {
-                enemy.GetComponent<EnemySpecs>().SetStats(specsToUse.sprite, specsToUse.speed, specsToUse.attack, specsToUse.health, specsToUse.animator, specsToUse.attackedSound, specsToUse.deadSound);
+                enemy.GetComponent<EnemySpecs>().SetStats(specsToUse.sprite, specsToUse.speed, specsToUse.attack, specsToUse.health, specsToUse.attackedSound, specsToUse.deadSound);
+                enemy.GetComponent<Animator>().runtimeAnimatorController = specsToUse.animator;
             }
             
         }
