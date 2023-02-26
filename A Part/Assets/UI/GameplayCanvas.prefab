@@ -199,15 +199,22 @@ MonoBehaviour:
   DeathMenu: {fileID: 1191059094616836764}
   TutorialMenu: {fileID: 5741778610778310343}
   healthSlider: {fileID: 1191059094645008070}
+  resumeButton: {fileID: 1191059095827630637}
+  homeButton: {fileID: 1191059094517401583}
   TutorialActions:
   - {fileID: 7688557668481452496}
   - {fileID: 1056388895463289262}
   - {fileID: 5179687100639832700}
   storyUI: {fileID: 7957747208603539838}
   TutorialTexts:
-  - a
-  - b
-  - c
+  - 'Two warriors, Oske and Tsuk, Go off to train in the sunime forest '
+  - Oske is a Paladin, Strong and weilds a mighty Katana. Tsuk on the other hand
+    is a nifty Cleric who is light on their feet and casts mighty Talismen
+  - Suddenly, as the two were training, an evil spirit decends upon them and curses
+    them in a unique way
+  - Their hearts are combined in tandum, so If either falls so does the other
+  - More bad spirits appear before Oske and Tsuk, and the two must fight off all
+    the spirits in order to lift their curse
   storyText: {fileID: 7875535568172475536}
   scoreText: {fileID: 1191059094641779622}
   timeText: {fileID: 1191059094744677022}
@@ -225,7 +232,7 @@ GameObject:
   - component: {fileID: 7973000946166875860}
   - component: {fileID: 5646717400383735889}
   m_Layer: 5
-  m_Name: Button
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1058,6 +1065,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20c84e2f3252d4a4983070050b3534f1, type: 3}
+--- !u!1 &1191059094517401583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1220547474723770770, guid: 20c84e2f3252d4a4983070050b3534f1, type: 3}
+  m_PrefabInstance: {fileID: 33562153233176189}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1191059094616836755 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1220547474557426926, guid: 20c84e2f3252d4a4983070050b3534f1, type: 3}
@@ -1421,12 +1433,20 @@ PrefabInstance:
       value: PausePanel
       objectReference: {fileID: 0}
     - target: {fileID: 3295570399596519522, guid: cbe0c69e669aea64bb1a4864a385d5f5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 71.1059
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295570399596519522, guid: cbe0c69e669aea64bb1a4864a385d5f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 71.1353
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295570399596519522, guid: cbe0c69e669aea64bb1a4864a385d5f5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -269
+      value: -250.03662
       objectReference: {fileID: 0}
     - target: {fileID: 3295570399596519522, guid: cbe0c69e669aea64bb1a4864a385d5f5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 358
+      value: 337.43237
       objectReference: {fileID: 0}
     - target: {fileID: 3295570399596519533, guid: cbe0c69e669aea64bb1a4864a385d5f5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1466,5 +1486,10 @@ RectTransform:
 --- !u!1 &1191059094354502233 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3295570398653728791, guid: cbe0c69e669aea64bb1a4864a385d5f5, type: 3}
+  m_PrefabInstance: {fileID: 4412201893065124430}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1191059095827630637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3295570399596519523, guid: cbe0c69e669aea64bb1a4864a385d5f5, type: 3}
   m_PrefabInstance: {fileID: 4412201893065124430}
   m_PrefabAsset: {fileID: 0}
