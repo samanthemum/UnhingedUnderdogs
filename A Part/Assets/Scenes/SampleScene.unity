@@ -358,6 +358,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1191059094644066664, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191059094644066665, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191059094644066665, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191059094644066665, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191059094644066665, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 1191059094644066667, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
       propertyPath: m_Name
       value: GameplayCanvas
@@ -466,6 +486,26 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3552961025132795726, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552961025132795726, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552961025132795726, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724537409828199488, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -17.999939
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724537409828199488, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -351.00006
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
 --- !u!1 &1956285903 stripped
