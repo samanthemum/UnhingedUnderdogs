@@ -67,7 +67,7 @@ Transform:
   m_GameObject: {fileID: 6653127294182002313}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.77, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6653127294715565335}
@@ -116,8 +116,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0.30947447, b: 1, a: 1}
+  m_Sprite: {fileID: -372436786, guid: d8fca11e66e0f6e479d106503bea395d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -136,8 +136,8 @@ Rigidbody:
   m_GameObject: {fileID: 6653127294182002313}
   serializedVersion: 2
   m_Mass: 2
-  m_Drag: 0.01
-  m_AngularDrag: 0
+  m_Drag: 1
+  m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -154,8 +154,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1415121, y: 0.14937471, z: 0.10404315}
-  m_Center: {x: -0.0064786375, y: 0.005312644, z: 0.021889035}
+  m_Size: {x: 2.1775985, y: 4.8053927, z: 0.7872844}
+  m_Center: {x: 0.042933226, y: 0.09787455, z: -0.15891671}
 --- !u!114 &6653127294182002316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,12 +172,12 @@ MonoBehaviour:
   rigidbody: {fileID: 0}
   attack: {fileID: 0}
   maxVelocity: 3
+  projectileSpeed: 500
   wasDamagedNoise: {fileID: 0}
   didAttackNoise: {fileID: 0}
-  footstepsSource: {fileID: 0}
   sourceFootsteps: {fileID: 0}
   alternateBuilds: {fileID: 6561323743802204133}
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 4641454818262515265, guid: 0bdab329d7fc90a4b89cef210b9bb3a6, type: 3}
 --- !u!114 &6653127294182002323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6653127294715565335}
   - component: {fileID: 6653127294715565328}
-  - component: {fileID: 6653127294715565329}
+  - component: {fileID: 365887686}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -359,7 +359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6653127294715565330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.23000002, z: -1.24}
+  m_LocalPosition: {x: 0, y: 0.23000002, z: -7.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -409,14 +409,102 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &6653127294715565329
-AudioListener:
+--- !u!82 &365887686
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6653127294715565330}
-  m_Enabled: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 21906a027a993bf4d90a3ceacdb7fd0e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7249707491647340822
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,15 +549,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4597ea902e9362247af77c2f07d9bdc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  animator: {fileID: 6653127294182002322}
+  sprite: {fileID: -1045387781, guid: 142bf35e543ad8c4495cf07a7db6335a, type: 3}
+  animator: {fileID: 9100000, guid: 87535bf95efdb2d49acc3def1a24c5af, type: 2}
   attack: 15
   attackClip: {fileID: 8300000, guid: 366ccd0dbf717444eaac8de1d5c15797, type: 3}
   hitClip: {fileID: 8300000, guid: 62718bf88fdb8ff4c81ed19ff5839dc7, type: 3}
   title: cleric
   speed: 90
-  defense: 0
-  maxSpeed: 4
+  defense: 5
+  maxSpeed: 2
 --- !u!1 &8424656741581894006
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,12 +602,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4597ea902e9362247af77c2f07d9bdc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  animator: {fileID: 6653127294182002322}
+  sprite: {fileID: -372436786, guid: d8fca11e66e0f6e479d106503bea395d, type: 3}
+  animator: {fileID: 9100000, guid: 87535bf95efdb2d49acc3def1a24c5af, type: 2}
   attack: 20
   attackClip: {fileID: 8300000, guid: 4c3b8278b9bffa84aa807358c9f94ca2, type: 3}
   hitClip: {fileID: 8300000, guid: 23a3c32e5946a6d4685c1c082f2f4b37, type: 3}
   title: paladin
   speed: 60
   defense: 10
-  maxSpeed: 2
+  maxSpeed: 1
