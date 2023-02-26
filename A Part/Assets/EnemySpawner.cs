@@ -27,12 +27,18 @@ public class EnemySpawner : MonoBehaviour
         {
             
             // move to new location
-            int locationIndex = (int)Mathf.Round(Random.Range(0.0f, alternateLocations.Length - 1.0f));
+            int locationIndex = Random.Range(1, alternateLocations.Length);
+            if(locationIndex >= alternateLocations.Length)
+            {
+                locationIndex = alternateLocations.Length - 1;
+            }
             Vector3 newPosition;
             Quaternion newRotation;
-            Debug.Log("Locations length is " + alternateLocations);
+            Debug.Log("Locations length is " + alternateLocations.Length);
             alternateLocations[locationIndex].GetPositionAndRotation(out newPosition, out newRotation);
-            this.gameObject.transform.SetPositionAndRotation(alternateLocations[locationIndex].transform.position, alternateLocations[locationIndex].transform.rotation);
+            Debug.Log("The new position x coordinate is " + newPosition.x);
+            Debug.Log("Selected coordinate was " + locationIndex);
+            this.gameObject.transform.SetPositionAndRotation(newPosition, newRotation);
 
             // spawn stuff
             int numberToSpawn = (int)(totalTime / timePerSpawn / 2.0f);
@@ -70,7 +76,7 @@ public class EnemySpawner : MonoBehaviour
             enemy = Instantiate(enemyToSpawn, ts.position, enemyToSpawn.transform.rotation) as GameObject;
 
             //// get enemy stats from child
-            int specIndex = (int)Mathf.Round(Random.Range(0.0f, specs.Length - 1));
+            int specIndex = Random.Range(0, specs.Length);
             EnemySpecs specsToUse = specs[specIndex];
 
             if(enemy.GetComponent<EnemySpecs>())

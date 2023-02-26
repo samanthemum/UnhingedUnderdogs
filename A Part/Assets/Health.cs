@@ -39,6 +39,11 @@ public class Health : MonoBehaviour
         {
             animator.SetTrigger("damage");
         }
+
+        if(GetComponent<ParticleSystem>())
+        {
+            GetComponent<ParticleSystem>().Play();
+        }
         
         Debug.Log("Remaining health is " + health);
 

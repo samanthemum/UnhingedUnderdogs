@@ -21,6 +21,7 @@ public class MainCharacterMovement : MonoBehaviour
 
     // Audio source
     [SerializeField] AudioSource sourceFootsteps;
+    [SerializeField] AudioSource swap;
 
     // Character alts
     [SerializeField] GameObject alternateBuilds;
@@ -116,10 +117,17 @@ public class MainCharacterMovement : MonoBehaviour
                 {
                     GetComponent<SpriteRenderer>().flipX = false;
                 }
-            }
+
+                if(sourceFootsteps.isPlaying == false)
+                {
+                    sourceFootsteps.Play();
+                    sourceFootsteps.loop = true;
+                }
+            } 
             else
             {
                 animator.SetBool("IsWalking", false);
+                sourceFootsteps.Stop();
             }
 
         }
@@ -153,6 +161,7 @@ public class MainCharacterMovement : MonoBehaviour
             currentBuildIndex++;
             currentBuildIndex %= builds.Length;
             SetBuild(builds[currentBuildIndex]);
+            swap.Play();
         }
     }
 

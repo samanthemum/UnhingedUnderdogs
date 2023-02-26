@@ -11,7 +11,7 @@ public class TalismanController : MonoBehaviour
 
     void Start()
     {
-        
+        GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame
