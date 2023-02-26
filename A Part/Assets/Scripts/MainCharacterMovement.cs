@@ -10,6 +10,7 @@ public class MainCharacterMovement : MonoBehaviour
     [SerializeField] Rigidbody rigidbody;
     [SerializeField] Attack attack;
     [SerializeField] float maxVelocity = 10.0f;
+    [SerializeField] float projectileSpeed = 2.0f;
     Animator animator;
     Health health;
     GameManager manager;
@@ -87,12 +88,6 @@ public class MainCharacterMovement : MonoBehaviour
     void Update()
     {
 
-        // check to see if we should die
-        if(health.GetHealth() <= 0)
-        {
-            Debug.Log("You died!");
-        }
-
         float horizontalComponent = Input.GetAxis("Horizontal");
         float verticalComponent = Input.GetAxis("Vertical");
         if(horizontalComponent != 0 || verticalComponent != 0)
@@ -130,7 +125,7 @@ public class MainCharacterMovement : MonoBehaviour
                 EnemyMovement target = FindObjectOfType<EnemyMovement>();
                 Vector3 projectileDirection = (target.transform.position - this.transform.position).normalized;
                 GameObject projectile = Instantiate(projectilePrefab, this.transform.position + .1f * projectileDirection, this.transform.rotation) as GameObject;
-                projectile.GetComponent<Rigidbody>().AddForce(projectileDirection);
+                projectile.GetComponent<Rigidbody>().AddForce(projectileDirection * projectileSpeed);
                 projectile.GetComponent<TalismanController>().mainCharacterPosition = this.transform;
                 projectile.GetComponent<Attack>().SetAttack(attack.GetAttack());
             }
