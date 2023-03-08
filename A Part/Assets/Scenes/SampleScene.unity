@@ -358,6 +358,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1191059094154072022, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1191059094644066667, guid: 34cf63a73f12c3943a5ef45b6f69f871, type: 3}
       propertyPath: m_Name
       value: GameplayCanvas
@@ -682,14 +686,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 268070500438737324, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
-      propertyPath: attack
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5006999649356289189, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
-      propertyPath: health
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 6653127294182002313, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
       propertyPath: m_Name
       value: MainCharacter
