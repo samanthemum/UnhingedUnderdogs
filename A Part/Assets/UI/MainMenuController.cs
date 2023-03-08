@@ -31,13 +31,19 @@ public class MainMenuController : MonoBehaviour
 
     public void StartGame()
     {
+        playButtonSound();
         SceneManager.LoadScene("SampleScene");
-
     }
 
     public void ExitGame()
     {
+        playButtonSound();
         Application.Quit();
+    }
+
+    public void playButtonSound()
+    {
+        GetComponent<AudioSource>().Play();
     }
 
     //HTP -> How To Play
