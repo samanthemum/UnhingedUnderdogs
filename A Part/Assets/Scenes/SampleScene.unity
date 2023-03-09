@@ -1035,6 +1035,14 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3472985801636461923, guid: 5cbd711053db0a34d8158e8b22af96af, type: 3}
+      propertyPath: speed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472985801636461923, guid: 5cbd711053db0a34d8158e8b22af96af, type: 3}
+      propertyPath: attack
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472985801636461923, guid: 5cbd711053db0a34d8158e8b22af96af, type: 3}
       propertyPath: sprite
       value: 
       objectReference: {fileID: 1642360536, guid: 80ddd1391b3bcdd40b93d134495fa5b5, type: 3}
@@ -1042,6 +1050,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 9100000, guid: 6e83e2c6156f77b43b7cc084a199e230, type: 2}
+    - target: {fileID: 3472985802358333692, guid: 5cbd711053db0a34d8158e8b22af96af, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3472985802358333692, guid: 5cbd711053db0a34d8158e8b22af96af, type: 3}
       propertyPath: sprite
       value: 
@@ -1151,9 +1163,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 268070500438737324, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
+      propertyPath: speed
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400325417293487971, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
+      propertyPath: speed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6653127294182002313, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
       propertyPath: m_Name
       value: MainCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653127294182002316, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
+      propertyPath: numTalismans
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6653127294182002319, guid: cebeb68f0586c454cbada9d24f9bc625, type: 3}
       propertyPath: m_RootOrder

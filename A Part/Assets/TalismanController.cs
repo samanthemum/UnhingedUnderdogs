@@ -36,4 +36,10 @@ public class TalismanController : MonoBehaviour
 
         
     }
+
+    private void OnDestroy()
+    {
+        MainCharacterMovement mainCharacter = FindObjectOfType<MainCharacterMovement>();
+        mainCharacter.incrementTalismanNumber();
+    }
 }

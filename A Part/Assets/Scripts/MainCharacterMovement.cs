@@ -36,6 +36,7 @@ public class MainCharacterMovement : MonoBehaviour
 
     // Cooldown controls
     bool canPaladinAttack = true;
+    [SerializeField] int numTalismans = 10;
 
 
 
@@ -119,7 +120,7 @@ public class MainCharacterMovement : MonoBehaviour
                 {
                     GetComponent<SpriteRenderer>().flipX = true;
                 } 
-                else
+                else if(horizontalComponent > 0)
                 {
                     GetComponent<SpriteRenderer>().flipX = false;
                 }
@@ -154,17 +155,29 @@ public class MainCharacterMovement : MonoBehaviour
                 StartCoroutine(CoolDownPaladinAttack());
              }
 
-            else if (currentBuild == "cleric")
+            else if (currentBuild == "cleric" && numTalismans > 0)
             {
                 Debug.Log("Spawn projectile");
-                EnemyMovement target = FindObjectOfType<EnemyMovement>();
-                if(target)
+
+                
+                EnemyMovement[] potentialTargets = FindObjectsOfType<EnemyMovement>();
+                
+
+                if(potentialTargets.Length > 0)
                 {
+                    // select a target
+                    int targetIndex = (int)Random.Range(0, potentialTargets.Length);
+                    EnemyMovement target = potentialTargets[targetIndex];
+
+                    // launch it that direction
                     Vector3 projectileDirection = (target.transform.position - this.transform.position).normalized;
                     GameObject projectile = Instantiate(projectilePrefab, this.transform.position + .1f * projectileDirection, this.transform.rotation) as GameObject;
                     projectile.GetComponent<Rigidbody>().AddForce(projectileDirection * projectileSpeed);
                     projectile.GetComponent<TalismanController>().mainCharacterPosition = this.transform;
                     projectile.GetComponent<Attack>().SetAttack(attack.GetAttack());
+
+                    // decrease the number of talismans
+                    numTalismans--;
                 }
             }
         }
@@ -199,6 +212,11 @@ public class MainCharacterMovement : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         attack.setCurrentAttackTarget(null);
+    }
+
+    public void incrementTalismanNumber()
+    {
+      numTalismans++;
     }
 
     private void ResetCollisionPhysics()
