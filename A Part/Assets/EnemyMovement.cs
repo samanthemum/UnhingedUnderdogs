@@ -72,7 +72,6 @@ public class EnemyMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    //// TODO: Add nav mesh
     void Update()
     {
         // check to see if we're dead
@@ -98,6 +97,18 @@ public class EnemyMovement : MonoBehaviour
         {
             currentFrame++;
         }
+
+        // update sprite direction
+        if (navMeshAgent.desiredVelocity.x > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else if (navMeshAgent.desiredVelocity.x < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+
+        
 
         if (inRange())
         {
