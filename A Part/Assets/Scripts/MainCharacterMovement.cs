@@ -6,7 +6,8 @@ public class MainCharacterMovement : MonoBehaviour
 {
 
     // Update is called once per frame
-     [SerializeField] float characterSpeed = 1.0f;
+    [SerializeField] float characterSpeed = 1.0f;
+    [SerializeField] float dodgeBonus = .2f;
     [SerializeField] Rigidbody rigidbody;
     [SerializeField] Attack attack;
     [SerializeField] float maxVelocity = 10.0f;
@@ -149,6 +150,7 @@ public class MainCharacterMovement : MonoBehaviour
             {
                 canPaladinAttack = false;
                 attack.DoAttack();
+                characterSpeed += dodgeBonus;
                 StartCoroutine(CoolDownPaladinAttack());
              }
 
@@ -181,6 +183,7 @@ public class MainCharacterMovement : MonoBehaviour
         {
             Physics.IgnoreLayerCollision(3, 6, true);
             animator.SetTrigger("dodge");
+            StartCoroutine(ResetPhysicsInSeconds(1.0f));
         }
     }
 
@@ -209,4 +212,10 @@ public class MainCharacterMovement : MonoBehaviour
         canPaladinAttack = true;
     }
 
+    private IEnumerator ResetPhysicsInSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        characterSpeed -= dodgeBonus;
+        ResetCollisionPhysics();
+    }
 }
