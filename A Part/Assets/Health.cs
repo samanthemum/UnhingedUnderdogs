@@ -37,7 +37,7 @@ public class Health : MonoBehaviour
         Debug.Log("Setting damage trigger");
         if(animator)
         {
-            animator.SetTrigger("damage");
+            // animator.SetTrigger("damage");
         }
 
         if(GetComponent<ParticleSystem>())

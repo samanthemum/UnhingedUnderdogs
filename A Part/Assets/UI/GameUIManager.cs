@@ -39,6 +39,12 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI timeText;
     [SerializeField] GameManager gameManager;
 
+    [Header("Audio")]
+    [SerializeField] AudioSource buttonNoise;
+
+    // Character stats
+    float mainCharacterHealthAtStart;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +58,11 @@ public class GameUIManager : MonoBehaviour
         isTutorial = false;
         gameManager = FindObjectOfType<GameManager>();
 
+        Health mainCharacterHealth = player.GetComponent<Health>();
+        if(mainCharacterHealth)
+        {
+            mainCharacterHealthAtStart = mainCharacterHealth.GetHealth();
+        }
         StartTutorial();
     }
 
@@ -73,6 +84,11 @@ public class GameUIManager : MonoBehaviour
 
     public void showNextStoryIndex()
     {
+        if(buttonNoise && StoryIndex != -1)
+        {
+            buttonNoise.Play();
+        }
+
         if(StoryIndex >= TutorialTexts.Length-1)
         {
             storyUI.SetActive(false);
@@ -165,7 +181,7 @@ public class GameUIManager : MonoBehaviour
         }
 
         //update player stats onto gameplay UI
-        healthSlider.fillAmount = Mathf.Clamp(player.GetComponent<Health>().GetHealth()/100, 0, 1);
+        healthSlider.fillAmount = Mathf.Clamp(player.GetComponent<Health>().GetHealth()/ mainCharacterHealthAtStart, 0, 1);
 
         if(player.GetComponent <Health>().GetHealth() <= 0)
         {
@@ -187,7 +203,7 @@ public class GameUIManager : MonoBehaviour
     //    yield return delayTime;
     //}
 
-    public void updateHealth()
+    public void UpdateHealth()
     {
         //Note: we will want to change this to player health/max health later
         healthSlider.fillAmount = Mathf.Clamp(0.6f, 0.0f, 1.0f);
@@ -209,6 +225,7 @@ public class GameUIManager : MonoBehaviour
 
     public void goToMainMenu()
     {
+        buttonNoise.Play();
         SceneManager.LoadScene("MainMenu");
     }
 

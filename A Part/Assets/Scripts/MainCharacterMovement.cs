@@ -6,7 +6,8 @@ public class MainCharacterMovement : MonoBehaviour
 {
 
     // Update is called once per frame
-     [SerializeField] float characterSpeed = 1.0f;
+    [SerializeField] float characterSpeed = 1.0f;
+    [SerializeField] float dodgeBonus = .2f;
     [SerializeField] Rigidbody rigidbody;
     [SerializeField] Attack attack;
     [SerializeField] float maxVelocity = 10.0f;
@@ -32,6 +33,12 @@ public class MainCharacterMovement : MonoBehaviour
     // Last forward vector
     Vector3 lastForward;
     [SerializeField] GameObject projectilePrefab;
+
+    // Cooldown controls
+    bool canPaladinAttack = true;
+    [SerializeField] int numTalismans = 10;
+
+
 
     private void Start()
     {
@@ -104,7 +111,7 @@ public class MainCharacterMovement : MonoBehaviour
                 rigidbody.velocity = rigidbody.velocity.normalized * maxVelocity;
             }
 
-            if(rigidbody.velocity.magnitude > .0f)
+            if(rigidbody.velocity.magnitude > .0f && health.GetHealth() > 0)
             {
                 animator.SetBool("IsWalking", true);
                 Debug.Log("And we're walkign!");
@@ -113,7 +120,7 @@ public class MainCharacterMovement : MonoBehaviour
                 {
                     GetComponent<SpriteRenderer>().flipX = true;
                 } 
-                else
+                else if(horizontalComponent > 0)
                 {
                     GetComponent<SpriteRenderer>().flipX = false;
                 }
@@ -132,25 +139,45 @@ public class MainCharacterMovement : MonoBehaviour
 
         }
 
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Dodge"))
+        {
+           
+        }
+
         // Do attacks
         if (Input.GetButtonDown("Attack"))
         {
-            if (currentBuild != "cleric")
+            if (currentBuild != "cleric"  && canPaladinAttack)
             {
+                canPaladinAttack = false;
                 attack.DoAttack();
+                characterSpeed += dodgeBonus;
+                StartCoroutine(CoolDownPaladinAttack());
              }
 
-            else
+            else if (currentBuild == "cleric" && numTalismans > 0)
             {
                 Debug.Log("Spawn projectile");
-                EnemyMovement target = FindObjectOfType<EnemyMovement>();
-                if(target)
+
+                
+                EnemyMovement[] potentialTargets = FindObjectsOfType<EnemyMovement>();
+                
+
+                if(potentialTargets.Length > 0)
                 {
+                    // select a target
+                    int targetIndex = (int)Random.Range(0, potentialTargets.Length);
+                    EnemyMovement target = potentialTargets[targetIndex];
+
+                    // launch it that direction
                     Vector3 projectileDirection = (target.transform.position - this.transform.position).normalized;
                     GameObject projectile = Instantiate(projectilePrefab, this.transform.position + .1f * projectileDirection, this.transform.rotation) as GameObject;
                     projectile.GetComponent<Rigidbody>().AddForce(projectileDirection * projectileSpeed);
                     projectile.GetComponent<TalismanController>().mainCharacterPosition = this.transform;
                     projectile.GetComponent<Attack>().SetAttack(attack.GetAttack());
+
+                    // decrease the number of talismans
+                    numTalismans--;
                 }
             }
         }
@@ -163,10 +190,19 @@ public class MainCharacterMovement : MonoBehaviour
             SetBuild(builds[currentBuildIndex]);
             swap.Play();
         }
+
+        // Do Dodges
+        if(Input.GetButtonDown("Dodge"))
+        {
+            Physics.IgnoreLayerCollision(3, 6, true);
+            animator.SetTrigger("dodge");
+            StartCoroutine(ResetPhysicsInSeconds(1.0f));
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        // check to see if it was an enemy
         if(collision.gameObject.GetComponent<EnemyMovement>())
         {
             attack.setCurrentAttackTarget(collision.gameObject);
@@ -178,4 +214,26 @@ public class MainCharacterMovement : MonoBehaviour
         attack.setCurrentAttackTarget(null);
     }
 
+    public void incrementTalismanNumber()
+    {
+      numTalismans++;
+    }
+
+    private void ResetCollisionPhysics()
+    {
+        Physics.IgnoreLayerCollision(3, 6, false);
+    }
+
+    private IEnumerator CoolDownPaladinAttack()
+    {
+        yield return new WaitForSeconds(.5f);
+        canPaladinAttack = true;
+    }
+
+    private IEnumerator ResetPhysicsInSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        characterSpeed -= dodgeBonus;
+        ResetCollisionPhysics();
+    }
 }
