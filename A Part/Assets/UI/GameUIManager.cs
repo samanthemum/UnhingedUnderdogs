@@ -39,6 +39,9 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI timeText;
     [SerializeField] GameManager gameManager;
 
+    [Header("Audio")]
+    [SerializeField] AudioSource buttonNoise;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +76,11 @@ public class GameUIManager : MonoBehaviour
 
     public void showNextStoryIndex()
     {
+        if(buttonNoise && StoryIndex != -1)
+        {
+            buttonNoise.Play();
+        }
+
         if(StoryIndex >= TutorialTexts.Length-1)
         {
             storyUI.SetActive(false);
@@ -206,6 +214,7 @@ public class GameUIManager : MonoBehaviour
 
     public void goToMainMenu()
     {
+        buttonNoise.Play();
         SceneManager.LoadScene("MainMenu");
     }
 

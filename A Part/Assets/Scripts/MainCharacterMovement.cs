@@ -33,6 +33,9 @@ public class MainCharacterMovement : MonoBehaviour
     Vector3 lastForward;
     [SerializeField] GameObject projectilePrefab;
 
+    // Cooldown controls
+    bool canPaladinAttack = true;
+
 
 
     private void Start()
@@ -106,7 +109,7 @@ public class MainCharacterMovement : MonoBehaviour
                 rigidbody.velocity = rigidbody.velocity.normalized * maxVelocity;
             }
 
-            if(rigidbody.velocity.magnitude > .0f)
+            if(rigidbody.velocity.magnitude > .0f && health.GetHealth() > 0)
             {
                 animator.SetBool("IsWalking", true);
                 Debug.Log("And we're walkign!");
@@ -142,12 +145,14 @@ public class MainCharacterMovement : MonoBehaviour
         // Do attacks
         if (Input.GetButtonDown("Attack"))
         {
-            if (currentBuild != "cleric")
+            if (currentBuild != "cleric"  && canPaladinAttack)
             {
+                canPaladinAttack = false;
                 attack.DoAttack();
+                StartCoroutine(CoolDownPaladinAttack());
              }
 
-            else
+            else if (currentBuild == "cleric")
             {
                 Debug.Log("Spawn projectile");
                 EnemyMovement target = FindObjectOfType<EnemyMovement>();
@@ -196,6 +201,12 @@ public class MainCharacterMovement : MonoBehaviour
     private void ResetCollisionPhysics()
     {
         Physics.IgnoreLayerCollision(3, 6, false);
+    }
+
+    private IEnumerator CoolDownPaladinAttack()
+    {
+        yield return new WaitForSeconds(.5f);
+        canPaladinAttack = true;
     }
 
 }
